@@ -19,6 +19,19 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
     <title>React App</title>
+
+
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "615361f4-aa0a-4d84-9544-131df9767b50",
+    });
+  });
+</script>
+
+
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
