@@ -1,0 +1,32 @@
+.section-title {
+     margin-top: 50px;
+     margin-bottom: 50px;
+     color: #051b35;
+     font-size: 20px;
+     font-family: 'Roboto Condensed', sans-serif;
+     font-weight: 400;
+ }
+ .section-sub-title {
+     color: #212121;
+     font-size: 15px;
+     font-family: 'Roboto Condensed', sans-serif;
+     font-weight: 300;
+ }
+ .product-name-on-card {
+     color: #051b35;
+     font-size: 16px;
+     font-family: 'Roboto Condensed', sans-serif;
+     font-weight: 400;
+ }
+ .product-price-on-card {
+     color: #E43023;
+     font-size: 14px;
+     font-family: 'Roboto Condensed', sans-serif;
+     font-weight: 600;
+ }
+ .category-name{
+     color: #000000;
+     font-size: 13px;
+     font-family: 'Roboto Condensed', sans-serif;
+     font-weight: 600;
+ }
