@@ -10,6 +10,7 @@
 @import "typo.css";
 @import "megaMenuMobile.css";
 @import "responsive.css";
+@import "megaMenuAll.css";
 
 body{
      background-color: #ffffff;
