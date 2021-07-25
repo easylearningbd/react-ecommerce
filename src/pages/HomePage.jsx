@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import FooterDesktop from '../components/common/FooterDesktop'
 import NavMenuDesktop from '../components/common/NavMenuDesktop'
 import NavMenuMobile from '../components/common/NavMenuMobile'
 import Categories from '../components/home/Categories'
@@ -9,7 +10,7 @@ import HomeTopMobile from '../components/home/HomeTopMobile'
 import NewArrival from '../components/home/NewArrival'
 
 export class HomePage extends Component {
-     render() {
+     render() { 
           return (   
                <Fragment> 
                     <div className="Desktop">
@@ -26,6 +27,7 @@ export class HomePage extends Component {
                     <NewArrival />
                     <Categories />
                     <Collection />
+                    <FooterDesktop/>
                     
                </Fragment>
           )
