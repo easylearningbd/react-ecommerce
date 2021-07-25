@@ -1,0 +1,38 @@
+html {
+     height: auto !important;
+ }
+ body {
+     background-color: #FAFDFB !important;
+     font-size: 15px;
+     font-family: 'Roboto Condensed', sans-serif;
+     font-weight: 300;
+     color: #212121;
+     position: initial !important;
+     min-height: initial !important;
+     top: auto !important;
+ }
+ 
+ .goog-te-banner-frame {
+     top:initial;
+     bottom: 0;
+     display: none;
+ }
+ 
+ 
+ 
+ .BetweenTwoSection{
+     margin-top: 60px;
+     margin-bottom: 60px;
+ }
+ 
+ .TopSection{
+     margin-top: 100px;
+ }
+ 
+ .Link{
+     text-decoration: none !important;
+ }
+ 
+ .Link:hover{
+     text-decoration: none !important;
+ }

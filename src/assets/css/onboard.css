@@ -1,0 +1,10 @@
+.onboardBanner{
+     width: 100% !important;
+     height: auto;
+     object-fit: cover;
+ }
+ .onboardForm{
+     margin-top: 70px;
+     margin-bottom: 70px;
+     width: 90%;
+ }
