@@ -1,0 +1,18 @@
+.Product-Name{
+     color: #212121;
+     font-size: 20px;
+     font-family: 'Roboto Condensed', sans-serif;
+     font-weight: 400;
+ }
+ .Product-price-card{
+     padding: 10px;
+     margin: 2px;
+     border: 0.5px solid #c8c8c8;
+ }
+ 
+ .Review-Title{
+     color: #E43023;
+     font-size: 18px;
+     font-family: 'Roboto Condensed', sans-serif;
+     font-weight: 400;
+ }
