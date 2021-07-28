@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { Container,Row,Col, Form,Button } from 'react-bootstrap'
- 
+import validation from '../../validation/validation';
+import axios from 'axios' 
+import AppURL from '../../api/AppURL';
 
 export class Contact extends Component {
 
@@ -32,8 +34,44 @@ export class Contact extends Component {
           }
 
           onFormSubmit =(event)=>{
-               alert("Hello hi");
-               event.prventDefault();
+               
+               let name = this.state.name;
+               let email = this.state.email;
+               let message = this.state.message;
+
+               if(message.length==0){
+                    alert("Please write your message");
+               }
+               else if(name.length==0){
+                    alert("Please write down our name");
+               }
+               else if(email.length==0){
+                    alert("Please write down our Email");
+               }
+               else if(!(validation.NameRegx).test(name)){
+                    alert("Invaid Name");
+               }
+               else{
+                   
+     let MyFormData = new FormData();
+     MyFormData.append("name",name)
+     MyFormData.append("email",email)
+     MyFormData.append("message",message)
+
+     axios.post(AppURL.PostContact,MyFormData).then(function (response) {
+               if(response.status==200 && response.data==1){
+                    alert("Message Send Successfully");
+               }
+               else{
+               alert("error"); 
+               }
+          })
+          .catch(function (error) {
+          alert(error);
+          });
+               }
+
+               event.preventDefault();
 
           }
 
