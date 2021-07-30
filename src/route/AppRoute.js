@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Router, Route, Switch } from "react-router";
+import AboutPage from '../pages/AboutPage';
 import CartPage from '../pages/CartPage';
 import ContactPage from '../pages/ContactPage';
 import FavouritePage from '../pages/FavouritePage';
@@ -23,6 +24,7 @@ class AppRoute extends Component {
                <Route exact path="/purchase" component={PurchasePage} />
                <Route exact path="/privacy" component={PrivacyPage} />
                <Route exact path="/refund" component={RefundPage} />
+               <Route exact path="/about" component={AboutPage} />
 
                <Route exact path="/productdetails" component={ProductDetailsPage} />
 

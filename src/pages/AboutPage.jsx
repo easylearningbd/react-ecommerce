@@ -3,16 +3,17 @@ import FooterDesktop from '../components/common/FooterDesktop'
 import FooterMobile from '../components/common/FooterMobile'
 import NavMenuDesktop from '../components/common/NavMenuDesktop'
 import NavMenuMobile from '../components/common/NavMenuMobile'
-import Purchase from '../components/others/Purchase'
+import About from '../components/others/About'
 
-class PurchasePage extends Component {
+ class AboutPage extends Component {
      componentDidMount(){
           window.scroll(0,0)
      } 
 
+
      render() {
           return (
-              <Fragment> 
+               <Fragment> 
                <div className="Desktop">
                 <NavMenuDesktop /> 
                </div>
@@ -21,7 +22,7 @@ class PurchasePage extends Component {
                <NavMenuMobile />  
                </div>                       
 
-               <Purchase /> 
+               <About /> 
                
                <div className="Desktop">
                <FooterDesktop/>
@@ -36,4 +37,4 @@ class PurchasePage extends Component {
      }
 }
 
-export default PurchasePage
+export default AboutPage
