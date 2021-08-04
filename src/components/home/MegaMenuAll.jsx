@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AppURL from '../../api/AppURL';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 class MegaMenuAll extends Component {
     
@@ -48,7 +49,7 @@ class MegaMenuAll extends Component {
       <ul>
           {
                (CatList.subcategory_name).map((SubList,i)=>{
-                    return <li><a href="#" className="accordionItemAll" >{SubList.subcategory_name} </a></li>
+                    return <li><Link to={"productsubcategory/"+CatList.category_name+"/"+SubList.subcategory_name } className="accordionItem" >{SubList.subcategory_name} </Link></li>
 
                })    
           }
