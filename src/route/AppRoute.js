@@ -9,6 +9,7 @@ import NotificationPage from '../pages/NotificationPage';
 import PrivacyPage from '../pages/PrivacyPage';
 import ProductCategoryPage from '../pages/ProductCategoryPage';
 import ProductDetailsPage from '../pages/ProductDetailsPage';
+import ProductSubCategoryPage from '../pages/ProductSubCategoryPage';
 import PurchasePage from '../pages/PurchasePage';
 import RefundPage from '../pages/RefundPage';
 import UserLoginPage from '../pages/UserLoginPage';
@@ -34,6 +35,8 @@ class AppRoute extends Component {
                <Route exact path="/cart" component={CartPage} />
 
                <Route exact path="/productcategory/:category" component={ProductCategoryPage} />
+
+               <Route exact path="/productsubcategory/:category/:subcategory" component={ProductSubCategoryPage} />
 
 
           </Switch>
