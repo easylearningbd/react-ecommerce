@@ -5,13 +5,16 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import AppURL from '../../api/AppURL';
 import axios from 'axios'
+import NewArrivalLoading from '../PlaceHolder/NewArrivalLoading';
 
 class NewArrival extends Component {
 
      constructor(props){
           super(props);
           this.state={
-               ProductData:[]
+               ProductData:[],
+               isLoading:"",
+               mainDiv:"d-none"
           }
           this.next=this.next.bind(this);
           this.previous=this.previous.bind(this)
@@ -27,7 +30,8 @@ class NewArrival extends Component {
      componentDidMount(){
           axios.get(AppURL.ProductListByRemark("NEW")).then(response =>{
                
-               this.setState({ProductData:response.data});         
+               this.setState({ProductData:response.data,isLoading:"d-none",
+               mainDiv:""});         
 
           }).catch(error=>{
 
@@ -112,6 +116,10 @@ class NewArrival extends Component {
 
           return ( 
                <Fragment>
+
+               <NewArrivalLoading  isLoading={this.state.isLoading} />
+
+               <div className={this.state.mainDiv}>
           <Container className="text-center" fluid={true}>
           <div className="section-title text-center mb-55"><h2>NEW ARRIVAL &nbsp;
 
@@ -134,6 +142,7 @@ class NewArrival extends Component {
 
 
                     </Container>
+                    </div>
 
                </Fragment>
           )
