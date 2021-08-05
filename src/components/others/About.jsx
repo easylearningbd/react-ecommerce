@@ -22,7 +22,7 @@ import ReactHtmlParser from 'react-html-parser';
                     let JsonData = (response.data)[0]['about'];
                     this.setState({about:JsonData,loaderDiv:"d-none",mainDiv:""});
                } 
-
+ 
           }).catch(error=>{
 
           });
