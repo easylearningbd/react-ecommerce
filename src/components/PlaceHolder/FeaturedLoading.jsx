@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Container,Row,Col,Card} from 'react-bootstrap'
+
 class FeaturedLoading extends Component {
      render() {
           let isLoading = this.props.isLoading; 
