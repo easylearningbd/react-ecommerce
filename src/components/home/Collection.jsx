@@ -3,6 +3,7 @@ import {Container,Row,Col,Card} from 'react-bootstrap'
 import AppURL from '../../api/AppURL';
 import axios from 'axios'
 import CollectionLoading from '../PlaceHolder/CollectionLoading';
+import { Link } from 'react-router-dom'
 
 class Collection extends Component {
 
@@ -35,6 +36,7 @@ class Collection extends Component {
 
           if(CollectionList.special_price=="na"){
                return   <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
+                     <Link to={"/productdetails/"+CollectionList.id} >
                <Card className="image-box card w-100">
                <img className="center w-75" src={CollectionList.image} />   
                <Card.Body> 
@@ -42,13 +44,15 @@ class Collection extends Component {
                <p className="product-price-on-card">Price : ${CollectionList.price}</p>
                     
                </Card.Body>
-               </Card>          
+               </Card>    
+               </Link>      
                </Col>
 
           }
           else{
 
                return   <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
+                   <Link to={"/productdetails/"+CollectionList.id} >
                <Card className="image-box card w-100">
                <img className="center w-75" src={CollectionList.image} />   
                <Card.Body> 
@@ -56,7 +60,8 @@ class Collection extends Component {
                <p className="product-price-on-card">Price : <strike className="text-secondary">${CollectionList.price}</strike> ${CollectionList.special_price}</p>
                     
                </Card.Body>
-               </Card>          
+               </Card>   
+               </Link>       
                </Col>
 
           } 
