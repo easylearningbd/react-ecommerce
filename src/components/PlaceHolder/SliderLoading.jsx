@@ -7,7 +7,7 @@ class SliderLoading extends Component {
 
           return (
                <div className={isLoading}>
-
+ 
                <div className="row">
                     <div className="col-3">
                     <div class="ph-row">

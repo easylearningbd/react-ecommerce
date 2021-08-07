@@ -11,7 +11,7 @@ import axios from 'axios'
  class ProductCategoryPage extends Component {
 
      constructor({match}){
-          super();
+          super(); 
           this.state={
                Category:match.params.category,
                ProductData:[] 
