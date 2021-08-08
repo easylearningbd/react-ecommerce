@@ -44,7 +44,7 @@ class FeaturedProducts extends Component {
    <p className="product-name-on-card">{FeaturedList.title}</p>
     <p className="product-price-on-card">Price : ${FeaturedList.price}</p>
                     
-    </Card.Body>
+    </Card.Body> 
      </Card>
      </Link>
           </Col>
