@@ -48,3 +48,11 @@
     color: inherit;
     text-decoration: inherit;
 }
+.breadbody{
+    background-color: #e6e6e6;
+    padding-top: 20px;
+    padding-bottom: 7px;
+    padding-left: 30px;
+    font-weight: 600;
+    border-radius: 10px;
+}
