@@ -47,7 +47,7 @@ class NewArrival extends Component {
 
           if(NewList.special_price=="na"){
                return    <div>
-                <Link to={"/productdetails/"+NewList.id} >
+                <Link className="text-link" to={"/productdetails/"+NewList.id} >
                <Card className="image-box card">
                <img className="center" src={NewList.image} />   
                <Card.Body> 
@@ -63,7 +63,7 @@ class NewArrival extends Component {
           else{
 
                return    <div>
-                     <Link to={"/productdetails/"+NewList.id} >
+                     <Link className="text-link" to={"/productdetails/"+NewList.id} >
                <Card className="image-box card">
                <img className="center" src={NewList.image} />   
                <Card.Body> 
