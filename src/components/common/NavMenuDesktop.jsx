@@ -12,9 +12,26 @@ import MegaMenuAll from '../home/MegaMenuAll';
           super();
           this.state={
                SideNavState: "sideNavClose",
-               ContentOverState: "ContentOverlayClose"
+               ContentOverState: "ContentOverlayClose",
+               Searchkey:"",
+               SearchRedirectStauts:false
           }
      }
+
+     SearchOnChange(event){
+          let Searchkey = event.target.value;
+          // alert(Searchkey);
+          this.setState({Searchkey:Searchkey});
+     }
+
+     SeachOnClick(){
+          if(this.state.Searchkey.length>=2){
+               this.setState({SearchRedirectStauts:true})
+          }
+     }
+
+
+
 
 
      MenuBarClickHandler=()=>{
@@ -55,13 +72,14 @@ import MegaMenuAll from '../home/MegaMenuAll';
               <Link to="/"> <img className="nav-logo" src={Logo} /> </Link>
               </Col>
 
-              <Col className="p-1 mt-1" lg={4} md={4} sm={12} xs={12}>
-                   <div className="input-group w-100">
-                   <input type="text" className="form-control" />
-                   <Button type="button" className="btn site-btn"><i className="fa fa-search"> </i> 
-                   </Button>
-                   </div>
-              </Col>
+<Col className="p-1 mt-1" lg={4} md={4} sm={12} xs={12}>
+     <div className="input-group w-100">
+     <input onChange={this.SearchOnChange} type="text" className="form-control" />
+
+     <Button onClick={this.SeachOnClick} type="button" className="btn site-btn"><i className="fa fa-search"> </i> 
+     </Button>
+     </div>
+</Col>
 
               <Col className="p-1 mt-1" lg={4} md={4} sm={12} xs={12}>
               
