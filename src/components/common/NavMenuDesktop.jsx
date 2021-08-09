@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import {Navbar,Container, Row, Col,Button} from 'react-bootstrap';
 import Logo from '../../assets/images/easyshop.png';
 import Bars from '../../assets/images/bars.png';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import MegaMenuAll from '../home/MegaMenuAll';
  
    
@@ -16,6 +16,9 @@ import MegaMenuAll from '../home/MegaMenuAll';
                Searchkey:"",
                SearchRedirectStauts:false
           }
+          this.SearchOnChange = this.SearchOnChange.bind(this);
+          this.SeachOnClick = this.SeachOnClick.bind(this);
+          this.searchRedirect = this.searchRedirect.bind(this);
      }
 
      SearchOnChange(event){
@@ -30,7 +33,11 @@ import MegaMenuAll from '../home/MegaMenuAll';
           }
      }
 
-
+     searchRedirect(){
+          if(this.state.SearchRedirectStauts===true){
+               return <Redirect to={"/productbysearch/"+this.state.Searchkey} />
+          }
+     }
 
 
 
@@ -95,7 +102,7 @@ import MegaMenuAll from '../home/MegaMenuAll';
               </Col>
 
          </Row>
-   
+   {this.searchRedirect()}
     </Container>
 
   </Navbar>
