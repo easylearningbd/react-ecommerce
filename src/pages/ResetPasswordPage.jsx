@@ -3,11 +3,10 @@ import FooterDesktop from '../components/common/FooterDesktop'
 import FooterMobile from '../components/common/FooterMobile'
 import NavMenuDesktop from '../components/common/NavMenuDesktop'
 import NavMenuMobile from '../components/common/NavMenuMobile'
-import Register from '../components/common/Register'
+import ResetPassword from '../components/common/ResetPassword'
 
 
-
-export class RegisterPage extends Component {
+class ResetPasswordPage extends Component {
 
      componentDidMount(){
           window.scroll(0,0)
@@ -15,7 +14,7 @@ export class RegisterPage extends Component {
 
      render() {
           return (
-               <Fragment> 
+              <Fragment> 
                <div className="Desktop">
                 <NavMenuDesktop /> 
                </div>
@@ -24,7 +23,7 @@ export class RegisterPage extends Component {
                <NavMenuMobile />  
                </div>                       
 
-               <Register />  
+               <ResetPassword />  
                
                <div className="Desktop">
                <FooterDesktop/>
@@ -36,7 +35,7 @@ export class RegisterPage extends Component {
                
           </Fragment>
           )
-     } 
+     }
 }
 
-export default RegisterPage
+export default ResetPasswordPage

@@ -1,13 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import FooterDesktop from '../components/common/FooterDesktop'
 import FooterMobile from '../components/common/FooterMobile'
+import ForgetPassword from '../components/common/ForgetPassword'
 import NavMenuDesktop from '../components/common/NavMenuDesktop'
 import NavMenuMobile from '../components/common/NavMenuMobile'
-import Register from '../components/common/Register'
 
-
-
-export class RegisterPage extends Component {
+class ForgetPasswordPage extends Component {
 
      componentDidMount(){
           window.scroll(0,0)
@@ -24,7 +22,7 @@ export class RegisterPage extends Component {
                <NavMenuMobile />  
                </div>                       
 
-               <Register />  
+               <ForgetPassword />  
                
                <div className="Desktop">
                <FooterDesktop/>
@@ -36,7 +34,7 @@ export class RegisterPage extends Component {
                
           </Fragment>
           )
-     } 
+     }
 }
 
-export default RegisterPage
+export default ForgetPasswordPage
