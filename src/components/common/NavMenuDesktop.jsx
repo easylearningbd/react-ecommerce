@@ -91,7 +91,7 @@ import MegaMenuAll from '../home/MegaMenuAll';
               <Col className="p-1 mt-1" lg={4} md={4} sm={12} xs={12}>
               
               <Link to="/favourite" className="btn"><i className="fa h4 fa-heart"></i><sup><span className="badge text-white bg-danger">3</span></sup>                  
-                   </Link>
+                   </Link> 
 
                    <Link to="/notification" className="btn"><i className="fa h4 fa-bell"></i><sup><span className="badge text-white bg-danger">5</span></sup>                  
                    </Link>
