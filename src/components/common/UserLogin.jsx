@@ -15,7 +15,7 @@ class UserLogin extends Component {
                message:'',
                loggedIn:false
           }
-     }
+     } 
 
      // Login Form Submit Method 
      formSubmit = (e) => {
