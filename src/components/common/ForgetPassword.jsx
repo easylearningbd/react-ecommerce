@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import AppURL from '../../api/AppURL';
 import Forget from '../../assets/images/forget.jpg'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class ForgetPassword extends Component {
 
@@ -23,11 +25,18 @@ class ForgetPassword extends Component {
           }
 
           axios.post(AppURL.UserForgetPassword,data).then(response =>{ 
-               console.log(response);
-               
+               // console.log(response);
+               this.setState({message:response.data.message})
+
+               toast.success(this.state.message,{
+                    position: "top-right"
+               });
                
           }).catch(error=>{
-               console.log(error);
+               this.setState({message:error.response.data.message})
+               toast.error(this.state.message,{
+                    position: "top-right"
+               });
           }); 
 
      }
@@ -69,6 +78,7 @@ class ForgetPassword extends Component {
                          </Col>
                     </Row>
                </Container>
+               <ToastContainer />
           </Fragment>
           )
      }
