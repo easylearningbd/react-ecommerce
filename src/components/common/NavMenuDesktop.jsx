@@ -102,7 +102,7 @@ import MegaMenuAll from '../home/MegaMenuAll';
        <Link to="/cart" className="cart-btn"><i className="fa fa-shopping-cart"></i> 3 Items </Link>
               </Col>
 
-         </Row>
+         </Row> 
    {this.searchRedirect()}
     </Container>
 
