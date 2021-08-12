@@ -14,6 +14,10 @@ export class RegisterPage extends Component {
      }
 
      render() {
+
+          const setUser = this.props.setUser;
+          const user = this.props.user;
+
           return (
                <Fragment> 
                <div className="Desktop">
@@ -24,7 +28,7 @@ export class RegisterPage extends Component {
                <NavMenuMobile />  
                </div>                       
 
-               <Register />  
+               <Register setUser={setUser} user ={user}  />  
                
                <div className="Desktop">
                <FooterDesktop/>

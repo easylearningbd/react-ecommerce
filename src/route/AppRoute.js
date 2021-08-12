@@ -32,7 +32,7 @@ class AppRoute extends Component {
      }
 
      componentDidMount(){
-          axios.get(AppURL.UserData).then(response =>{ 
+          axios.get(AppURL.UserData).then((response) => { 
                this.setUser(response.data)
           }).catch(error=>{
 
@@ -55,9 +55,9 @@ class AppRoute extends Component {
 
  <Route exact path="/" render={(props) => <HomePage {...props} key={Date.now()} /> } />
 
- <Route exact path="/login" render={(props) => <UserLoginPage {...props} key={Date.now()} /> } />
+ <Route exact path="/login" render={(props) => <UserLoginPage user={this.state.user} setUser={this.setUser}  {...props} key={Date.now()} /> } />
 
-  <Route exact path="/register" render={(props) => <RegisterPage {...props} key={Date.now()} /> } />
+  <Route exact path="/register" render={(props) => <RegisterPage user={this.state.user} setUser={this.setUser} {...props} key={Date.now()} /> } />
 
   <Route exact path="/forget" render={(props) => <ForgetPasswordPage {...props} key={Date.now()} /> } />
  
