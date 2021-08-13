@@ -8,7 +8,7 @@ import axios from 'axios'
 class Register extends Component {
 
      constructor(){
-          super();
+          super(); 
           this.state={
                name:'',
                email:'',
