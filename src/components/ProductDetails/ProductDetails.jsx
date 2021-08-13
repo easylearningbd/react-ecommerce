@@ -4,6 +4,8 @@ import Product1 from '../../assets/images/product/product1.png'
 import ReactDOM from 'react-dom'
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
 import { Link } from 'react-router-dom'
+import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+import InnerImageZoom from 'react-inner-image-zoom';
 
 class ProductDetails extends Component {
 
@@ -114,6 +116,11 @@ class ProductDetails extends Component {
      <Row>
           <Col className="p-3" md={6} lg={6} sm={12} xs={12}>
           <img id="previewImg" className="bigimage" src={image_one} />
+
+               <div className="bigimage">
+          <InnerImageZoom zoomScale={1.8} zoomType={"hover"} src={image_one} zoomSrc={image_one} />
+          </div>
+
           <Container  className="my-3">
                <Row>
                     <Col className="p-0 m-0"  md={3} lg={3} sm={3} xs={3}>

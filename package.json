@@ -13,6 +13,7 @@
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
     "react-html-parser": "^2.0.2",
+    "react-inner-image-zoom": "^2.0.3",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-router-transition": "^2.1.0",
