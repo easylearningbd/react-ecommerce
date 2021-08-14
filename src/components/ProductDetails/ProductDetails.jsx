@@ -121,11 +121,11 @@ class ProductDetails extends Component {
 <Col className="shadow-sm bg-white pb-3 mt-4" md={12} lg={12} sm={12} xs={12}>
      <Row>
           <Col className="p-3" md={6} lg={6} sm={12} xs={12}>
-          {/* <img id="previewImg" className="bigimage" src={image_one} /> */}
+          
 
-               <div className="">
-          <InnerImageZoom zoomScale={1.8} zoomType={"hover"} src={this.state.previewImg} zoomSrc={this.state.previewImg} />
-          </div>
+               
+          <InnerImageZoom className="detailimage" zoomScale={1.8} zoomType={"hover"} src={this.state.previewImg} zoomSrc={this.state.previewImg} />
+         
 
           <Container  className="my-3">
                <Row>
