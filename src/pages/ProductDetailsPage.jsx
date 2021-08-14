@@ -77,7 +77,7 @@ class ProductDetailsPage extends Component {
                     </div>                       
      
                     <ProductDetails data={this.state.ProductData} /> 
-                    <SuggestedProduct/>
+                    
                     
                     <div className="Desktop">
                     <FooterDesktop/>
