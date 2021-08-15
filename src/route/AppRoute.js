@@ -78,7 +78,7 @@ class AppRoute extends Component {
 
  <Route exact path="/about" render={(props) => <AboutPage {...props} key={Date.now()} /> } />
 
- <Route exact path="/productdetails/:code" render={(props) => <ProductDetailsPage {...props} key={Date.now()} /> } />
+ <Route exact path="/productdetails/:code" render={(props) => <ProductDetailsPage user={this.state.user}  {...props} key={Date.now()} /> } />
 
  <Route exact path="/notification" render={(props) => <NotificationPage {...props} key={Date.now()} /> } />
 

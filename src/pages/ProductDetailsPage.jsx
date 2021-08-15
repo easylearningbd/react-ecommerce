@@ -36,6 +36,8 @@ class ProductDetailsPage extends Component {
 
      render() {
 
+          const User = this.props.user;
+
           if(this.state.mainDiv == "d-none"){
 
                return (
@@ -76,7 +78,7 @@ class ProductDetailsPage extends Component {
                     <NavMenuMobile />  
                     </div>                       
      
-                    <ProductDetails data={this.state.ProductData} /> 
+                    <ProductDetails data={this.state.ProductData} user={User} /> 
                     
                     
                     <div className="Desktop">

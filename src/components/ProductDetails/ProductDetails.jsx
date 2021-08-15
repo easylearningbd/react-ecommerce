@@ -9,7 +9,8 @@ import InnerImageZoom from 'react-inner-image-zoom';
 import SuggestedProduct from './SuggestedProduct'
 import ReviewList from './ReviewList'
 import cogoToast from 'cogo-toast';
-
+import AppURL from '../../api/AppURL'
+import axios from 'axios'
 
 class ProductDetails extends Component {
 
@@ -22,7 +23,8 @@ class ProductDetails extends Component {
                color:"",
                size:"",
                quantity:"",
-               productCode:null
+               productCode:null,
+               addToCart:"Add To Cart"
           }
      }
 
@@ -40,6 +42,7 @@ class ProductDetails extends Component {
           let size = this.state.size;
           let quantity = this.state.quantity;
           let productCode = this.state.productCode;
+          let email = this.props.user.email;
 
           if(isColor==="YES" && color.length===0){
                cogoToast.error('Please Select Color',{position:'top-right'});
@@ -54,13 +57,32 @@ class ProductDetails extends Component {
                cogoToast.warn('Please You have to Login First',{position:'top-right'});
           }
           else{
+               this.setState({addToCart:"Adding..."})
+               let MyFormData = new FormData();
+               MyFormData.append("color",color);
+               MyFormData.append("size",size);
+               MyFormData.append("quantity",quantity);
+               MyFormData.append("product_code",productCode);
+               MyFormData.append("email",email);
                
-          }
+               axios.post(AppURL.addToCart,MyFormData).then(response =>{
+                    if(response.data===1){
+                         cogoToast.success("Product Added Successfully",{position:'top-right'});
+                         this.setState({addToCart:"Add To Cart"})
 
+                    }
+                    else{
+                         cogoToast.error("Your Request is not done ! Try Aagain",{position:'top-right'});
+                         this.setState({addToCart:"Add To Cart"})
+                    }
+                             
+               }).catch(error=>{
+                    cogoToast.error("Your Request is not done ! Try Aagain",{position:'top-right'});
+                         this.setState({addToCart:"Add To Cart"})
+     
+               });
 
-
-
-           
+          }          
 
 
      }  /// End addToCart Mehtod 
@@ -287,7 +309,9 @@ class ProductDetails extends Component {
           
 
           <div className="input-group mt-3">
-               <button className="btn site-btn m-1 "> <i className="fa fa-shopping-cart"></i>  Add To Cart</button>
+
+    <button onClick={this.addToCart} className="btn site-btn m-1 "> <i className="fa fa-shopping-cart"></i>  {this.state.addToCart} </button>
+
                <button className="btn btn-primary m-1"> <i className="fa fa-car"></i> Order Now</button>
                <button className="btn btn-primary m-1"> <i className="fa fa-heart"></i> Favourite</button>
           </div>
