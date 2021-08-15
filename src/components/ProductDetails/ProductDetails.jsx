@@ -8,6 +8,8 @@ import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import InnerImageZoom from 'react-inner-image-zoom';
 import SuggestedProduct from './SuggestedProduct'
 import ReviewList from './ReviewList'
+import cogoToast from 'cogo-toast';
+
 
 class ProductDetails extends Component {
 
@@ -31,8 +33,37 @@ class ProductDetails extends Component {
 
 
      addToCart = () => {
-          
-     }
+
+          let isSize = this.state.isSize;
+          let isColor = this.state.isColor;
+          let color = this.state.color;
+          let size = this.state.size;
+          let quantity = this.state.quantity;
+          let productCode = this.state.productCode;
+
+          if(isColor==="YES" && color.length===0){
+               cogoToast.error('Please Select Color',{position:'top-right'});
+          }
+          else if(isSize==="YES" && size.length===0){
+               cogoToast.error('Please Select Size',{position:'top-right'});
+          } 
+          else if(quantity.length===0){
+               cogoToast.error('Please Select Quantity',{position:'top-right'});
+          }
+          else if (!localStorage.getItem('token')){
+               cogoToast.warn('Please You have to Login First',{position:'top-right'});
+          }
+          else{
+               
+          }
+
+
+
+
+           
+
+
+     }  /// End addToCart Mehtod 
 
 
      colorOnChange = (event) => {
