@@ -3,7 +3,7 @@ import { Container,Row,Col, Form,Button } from 'react-bootstrap'
 import Product1 from '../../assets/images/product/product1.png'
 import ReactDOM from 'react-dom'
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import InnerImageZoom from 'react-inner-image-zoom';
 import SuggestedProduct from './SuggestedProduct'
@@ -24,7 +24,8 @@ class ProductDetails extends Component {
                size:"",
                quantity:"",
                productCode:null,
-               addToCart:"Add To Cart"
+               addToCart:"Add To Cart",
+               PageRefreshStatus:false
           }
      }
 
@@ -69,7 +70,7 @@ class ProductDetails extends Component {
                     if(response.data===1){
                          cogoToast.success("Product Added Successfully",{position:'top-right'});
                          this.setState({addToCart:"Add To Cart"})
-
+                         this.setState({PageRefreshStatus:true})    
                     }
                     else{
                          cogoToast.error("Your Request is not done ! Try Aagain",{position:'top-right'});
@@ -105,7 +106,14 @@ class ProductDetails extends Component {
           this.setState({quantity:quantity})
      }
 
-
+     PageRefresh =() => {
+          if(this.state.PageRefreshStatus===true){
+               let URL = window.location;
+               return (
+                    <Redirect to={URL} />
+               )
+          }
+     }
  
 
 
@@ -337,7 +345,8 @@ class ProductDetails extends Component {
 
                 
                <SuggestedProduct subcategory={subcategory} />
-
+             
+               {this.PageRefresh()}
 
                
                </Fragment>

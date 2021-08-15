@@ -8,6 +8,7 @@
      border-radius: 20px !important;
      border:0.5px solid #051b35;
      background: #051b35 !important;
+     text-decoration: none;
  }
  .navbar { 
      font-size: 16px;
