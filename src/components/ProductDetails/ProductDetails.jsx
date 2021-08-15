@@ -14,7 +14,13 @@ class ProductDetails extends Component {
      constructor(){
           super();
           this.state={
-               previewImg:"0"
+               previewImg:"0",
+               isSize:null,
+               isColor:null,
+               color:"",
+               size:"",
+               quantity:"",
+               productCode:null
           }
      }
 
@@ -22,6 +28,32 @@ class ProductDetails extends Component {
           let imgSrc = event.target.getAttribute('src');
           this.setState({previewImg:imgSrc})
      }
+
+
+     addToCart = () => {
+          
+     }
+
+
+     colorOnChange = (event) => {
+          let color = event.target.value;
+          // alert(color);
+          this.setState({color:color})
+     }
+
+     sizeOnChange = (event) => {
+          let size = event.target.value;
+          // alert(size);
+          this.setState({size:size})
+     }
+
+     quantityOnChange = (event) => {
+          let quantity = event.target.value;
+          this.setState({quantity:quantity})
+     }
+
+
+ 
 
 
      PriceOption(price,special_price){
@@ -99,6 +131,29 @@ class ProductDetails extends Component {
      }
 
 
+     if(this.state.isSize===null){
+          if(size!="na"){
+               this.setState({isSize:"YES"})
+          }else{
+               this.setState({isSize:"NO"})
+          }
+     }
+
+
+     if(this.state.isColor===null){
+          if(color!="na"){
+               this.setState({isColor:"YES"})
+          }else{
+               this.setState({isColor:"NO"})
+          }
+     }
+
+
+     if(this.state.productCode===null){
+          this.setState({productCode:product_code})
+     }
+
+
 
 
           return ( 
@@ -166,7 +221,7 @@ class ProductDetails extends Component {
 
                <div className={ColorDiv}>
                <h6 className="mt-2"> Choose Color  </h6>
-               <select className="form-control form-select">
+               <select onChange={this.colorOnChange} className="form-control form-select">
                <option>Choose Color</option>
                {ColorOption}
                </select> 
@@ -175,7 +230,7 @@ class ProductDetails extends Component {
 
                <div className={SizeDiv}>
                <h6 className="mt-2"> Choose Size  </h6>
-               <select className="form-control form-select">
+               <select onChange={this.sizeOnChange} className="form-control form-select">
                <option>Choose Size</option>
                {SizeOption}
                </select> 
@@ -183,7 +238,7 @@ class ProductDetails extends Component {
 
                <div className="" >
                <h6 className="mt-2"> Choose Quantity  </h6>
-               <select className="form-control form-select">
+               <select onChange={this.quantityOnChange} className="form-control form-select">
                <option>Choose Quantity</option>
                <option value="01">01</option>
                <option value="02">02</option>
