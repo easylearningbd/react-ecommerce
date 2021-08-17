@@ -55,6 +55,10 @@ class Favourite extends Component {
 
      render() { 
 
+          if(!localStorage.getItem('token')){
+               return <Redirect to="/login" />
+          }
+
           const FevList = this.state.ProductData;
           const MyView = FevList.map((ProductList,i)=>{
                return <Col className="p-0" xl={3} lg={3} md={3} sm={6} xs={6}>
