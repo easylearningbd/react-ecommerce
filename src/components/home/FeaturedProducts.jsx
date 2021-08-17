@@ -29,7 +29,7 @@ class FeaturedProducts extends Component {
           });
      } 
 
-
+ 
      render() {
 
           const FeaturedList = this.state.ProductData;
