@@ -28,7 +28,7 @@ class FeaturedProducts extends Component {
 
           });
      } 
-
+ 
  
      render() {
 

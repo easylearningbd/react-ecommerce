@@ -9,9 +9,12 @@ class CartPage extends Component {
 
      componentDidMount(){
           window.scroll(0,0)
-     }
+     } 
 
      render() {
+
+          const User = this.props.user;
+
           return (
               <Fragment> 
                <div className="Desktop">
@@ -22,7 +25,7 @@ class CartPage extends Component {
                <NavMenuMobile />  
                </div>                       
 
-               <Cart /> 
+               <Cart user={User} /> 
                
                <div className="Desktop">
                <FooterDesktop/>
