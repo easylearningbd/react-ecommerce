@@ -36,7 +36,7 @@ class Favourite extends Component {
           axios.get(AppURL.FavouriteRemove(product_code,email)).then(response =>{               
               cogoToast.success("Product Item Remove",{position:'top-right'});   
               this.setState({PageRefreshStatus:true})       
-
+ 
           }).catch(error=>{
                cogoToast.error("Your Request is not done ! Try Aagain",{position:'top-right'});
           });
