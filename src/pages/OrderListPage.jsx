@@ -13,6 +13,9 @@ export class OrderListPage extends Component {
      } 
 
      render() {
+
+          const User = this.props.user;
+
           return (
               <Fragment> 
                <div className="Desktop">
@@ -23,7 +26,7 @@ export class OrderListPage extends Component {
                <NavMenuMobile />  
                </div>                       
 
-               <OrderList /> 
+               <OrderList user={User} /> 
                
                <div className="Desktop">
                <FooterDesktop/>
