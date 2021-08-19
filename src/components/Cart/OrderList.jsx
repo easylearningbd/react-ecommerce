@@ -69,7 +69,7 @@ export class OrderList extends Component {
           return (
                <Fragment>
                    <Container>
-    <div className="section-title text-center mb-55"><h2>Order History </h2>
+    <div className="section-title text-center mb-55"><h2>Order History By ( {this.props.user.name} )</h2>
           
           </div>
 
