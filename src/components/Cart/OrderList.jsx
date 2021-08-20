@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import AppURL from '../../api/AppURL';
 import axios from 'axios'
 import {Navbar,Container, Row, Col,Button,Card,Modal} from 'react-bootstrap';
+
 export class OrderList extends Component {
      constructor(){
           super();
@@ -14,7 +15,13 @@ export class OrderList extends Component {
                mainDiv:"d-none",
                Notificationmsg:"",
                Notificationtitle:"",
-               Notificationdate:"" 
+               Notificationdate:"", 
+
+               name:"",
+               rating:"",
+               comment:"",
+               product_name:"",
+               product_code:""
 
           }
      }
@@ -43,6 +50,26 @@ export class OrderList extends Component {
            this.setState({Notificationmsg:Nmsg,Notificationtitle:Ntitle,Notificationdate:Ndate})
       }; 
 
+      nameOnChange = (event) => {
+          let name = event.target.value;
+          this.setState({name:name})
+      }
+
+      RatingOnChange = (event) => {
+          let rating = event.target.value;
+          this.setState({rating:rating})
+      }
+
+      CommentOnChanage = (event) => {
+          let comment = event.target.value;
+          this.setState({comment:comment})
+      }
+
+
+      PostReview = () => {
+
+          
+      }
 
 
      render() {
@@ -93,13 +120,38 @@ export class OrderList extends Component {
            <h6><i className="fa fa-bell"></i> Post Your Review     </h6>
         </Modal.Header>
         <Modal.Body>
-             <h6>review</h6>
-             <p>
-             review
-             </p> 
+              
+     <div className="col-md-12 p-1 col-lg-12 col-sm-12 col-12">
+     <label className="form-label">Your Name</label>
+     <input onChange={this.nameOnChange}  className="form-control" type="text" placeholder=""/>
+</div>
+
+<div className="col-md-12 p-1 col-lg-12 col-sm-12 col-12">
+     <label className="form-label">Select Product Rating</label>
+     <select onChange={this.RatingOnChange}  className="form-control">
+     <option value="">Choose</option>
+     <option value="1">1</option>
+     <option value="2">2</option>
+     <option value="3">3</option>
+     <option value="4">4</option>
+     <option value="5">5</option>
+     </select>
+</div>
+
+<div className="col-md-12 p-1 col-lg-12 col-sm-12 col-12">
+     <label className="form-label">Your Comment</label>
+    <textarea onChange={this.CommentOnChanage}  rows={2} className="form-control" type="text" placeholder="Your Comment" />   
+</div>
+
+
+
 
         </Modal.Body>
         <Modal.Footer>
+          <Button variant="secondary" onClick={this.PostReview}>
+            Post
+          </Button>
+
           <Button variant="secondary" onClick={this.handleClose}>
             Close
           </Button>
