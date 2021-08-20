@@ -3,25 +3,21 @@ import { Fragment } from 'react'
 import AppURL from '../../api/AppURL';
 import axios from 'axios'
 import {Navbar,Container, Row, Col,Button,Card,Modal} from 'react-bootstrap';
+import cogoToast from 'cogo-toast';
 
 export class OrderList extends Component {
      constructor(){
           super();
           this.state={
                ProductData:[],
-               show:false,
-               NotificationData:[],
-               isLoading:"",
-               mainDiv:"d-none",
-               Notificationmsg:"",
-               Notificationtitle:"",
-               Notificationdate:"", 
+               show:false, 
 
                name:"",
                rating:"",
                comment:"",
                product_name:"",
-               product_code:""
+               product_code:"",
+               ReviewModal:false
 
           }
      }
@@ -38,17 +34,16 @@ export class OrderList extends Component {
      } 
 
 
-     handleClose = () =>{
-          this.setState({ show:false})
+     ReviewModalOpen = (product_code,product_name) =>{
+          this.setState({ ReviewModal:true,product_code:product_code,product_name:product_name})
       };  
 
-      handleShow = (event) => {
-           this.setState({ show:true });
-           let Nmsg = event.target.getAttribute("data-message");
-           let Ntitle = event.target.getAttribute("data-title");
-           let Ndate = event.target.getAttribute("data-date");
-           this.setState({Notificationmsg:Nmsg,Notificationtitle:Ntitle,Notificationdate:Ndate})
-      }; 
+
+     ReviewModalClose = () =>{
+          this.setState({ ReviewModal:false})
+      };  
+
+    
 
       nameOnChange = (event) => {
           let name = event.target.value;
@@ -67,9 +62,51 @@ export class OrderList extends Component {
 
 
       PostReview = () => {
+           let product_code = this.state.product_code;
+           let product_name = this.state.product_name;
+           let rating = this.state.rating;
+           let comment = this.state.comment;
+           let name = this.state.name;
 
-          
-      }
+           if(name.length===0){
+               cogoToast.error("Name Is Required",{position:'top-right'});
+          }
+          else if(comment.length===0){
+               cogoToast.error("Comment Is Required",{position:'top-right'});
+          }
+          else if(rating.length===0){
+               cogoToast.error("Rating Is Required",{position:'top-right'});
+          }
+          else if(comment.length>50){
+               cogoToast.error("Comments can't more then 150 character",{position:'top-right'});
+          }
+          else{
+               
+               let MyFromData = new FormData();
+               MyFromData.append('product_code',product_code)
+               MyFromData.append('product_name',product_name)
+               MyFromData.append('reviewer_name',name)
+               MyFromData.append('reviewer_photo',"")
+               MyFromData.append('reviewer_rating',rating)
+               MyFromData.append('reviewer_comments',comment)
+
+     axios.post(AppURL.PostReview,MyFromData).then(response =>{ 
+
+          if(response.data===1){
+               cogoToast.success("Review Submitted",{position:'top-right'}); 
+               this.ReviewModalClose();
+          }else{
+               cogoToast.error("Your Request is not done ! Try Aagain",{position:'top-right'});
+          }
+               }).catch(error=>{
+                    cogoToast.error("Your Request is not done ! Try Aagain",{position:'top-right'});
+     
+               });
+                
+
+          } 
+
+      } // End Post Review Method
 
 
      render() {
@@ -83,8 +120,9 @@ export class OrderList extends Component {
           <p>{ProductList.size} | {ProductList.color}</p>
           <h6>Price = {ProductList.unit_price} x {ProductList.quantity} = {ProductList.total_price}$</h6>
           <h6>Stauts = {ProductList.order_status} </h6>
+          
           </Col>
-          <Button onClick={this.handleShow} className="btn btn-danger">Post Review </Button>
+          <Button onClick={this.ReviewModalOpen.bind(this,ProductList.product_code,ProductList.product_name ) } className="btn btn-danger">Post Review </Button>
 <hr></hr>
                </div>
 
@@ -115,7 +153,7 @@ export class OrderList extends Component {
 
 
 
-        <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal show={this.state.ReviewModal} onHide={this.ReviewModalClose}>
         <Modal.Header closeButton>
            <h6><i className="fa fa-bell"></i> Post Your Review     </h6>
         </Modal.Header>
@@ -123,7 +161,7 @@ export class OrderList extends Component {
               
      <div className="col-md-12 p-1 col-lg-12 col-sm-12 col-12">
      <label className="form-label">Your Name</label>
-     <input onChange={this.nameOnChange}  className="form-control" type="text" placeholder=""/>
+     <input onChange={this.nameOnChange}  className="form-control" type="text" placeholder={this.props.user.name} />
 </div>
 
 <div className="col-md-12 p-1 col-lg-12 col-sm-12 col-12">
@@ -152,7 +190,7 @@ export class OrderList extends Component {
             Post
           </Button>
 
-          <Button variant="secondary" onClick={this.handleClose}>
+          <Button variant="secondary" onClick={this.ReviewModalClose}>
             Close
           </Button>
           

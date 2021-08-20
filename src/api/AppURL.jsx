@@ -82,6 +82,8 @@ class AppURL {
      static OrderListByUser(email){
           return this.BaseURL+"/orderlistbyuser/"+email;
      }
+
+     static PostReview = this.BaseURL+"/postreview"
       
 }
 
